@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<title>Tic-Tac-Toe Opus</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/main.css" />
+	<link rel="stylesheet" href="../css/gameMain.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type='text/javascript' src='../js/jquery.particleground.min.js'></script>
+	<script type='text/javascript' src='../js/cookies.js'></script>
+	<script type='text/javascript' src='../js/main.js'></script>
+	<script type='text/javascript' src='../js/gameMain.js'></script>
+</head>
+
+<body>
+
+<div id="particles">
+	<div id="mainContainer" class="container">
+		<h1 id="GameMode"></h1>
+
+		<div id="modalContainer"></div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<canvas id="tic-tac-toe-board" class="center-v">Your browser does not support the HTML5 canvas tag which is required to play Tic-Tac-Toe.</canvas>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="players-container">
+							<div id="player1Name"></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="players-container">
+							<div id="player2Name"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div id="player1Wins"></div>
+					</div>
+					<div class="col-md-6">
+						<div id="player2Wins"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div id="whosTurn" class="col-md-12"></div>
+				</div>
+				<div class="row">
+					<div id="gamesPlayed" class="col-md-12"></div>
+				</div>
+				<div class="row">
+					<div id="newGameButton" class="col-md-12 game-buttons">
+						New Game
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div id="copyrightFooter" class="col-md-12">© 2017 Matt Agius, All Rights Reserved</div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+
+</html>

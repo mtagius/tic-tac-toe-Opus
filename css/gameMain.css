@@ -1,0 +1,12 @@
+
+.players-container {
+    margin: 30px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 40px;
+    border-color: #3D5F7E;
+}
+
+.modal-dialog {
+    top: 20%;
+}

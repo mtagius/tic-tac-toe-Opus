@@ -1,0 +1,85 @@
+.tempLogo {
+    width: 200px;
+    height: 200px;
+    background-color: #3D5F7E;
+    border-radius: 100px;
+    margin: 100px auto;
+    margin-bottom: 30px;
+}
+
+.icon-scroll, .icon-scroll:before {
+    position: absolute;
+    left: 50%;
+}
+.icon-scroll {
+    width: 40px;
+    height: 70px;
+    margin-left: -20px;
+    top: 95%;
+    margin-top: -35px;
+}
+.icon-scroll:before {
+    /*content: '';*/
+    content: "";
+    /*width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #3D5F7E;*/
+    top: 8px;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-name: scroll;
+            animation-name: scroll;
+}
+@-webkit-keyframes scroll {
+    0% {
+        -webkit-transform: translateY(-6px);
+                transform: translateY(-6px);
+    }
+    50% {
+        -webkit-transform: translateY(6px);
+                transform: translateY(6px);
+    }
+    100% {
+        -webkit-transform: translateY(-6px);
+                transform: translateY(-6px);
+    }
+}
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateY(-6px);
+                transform: translateY(-6px);
+    }
+    50% {
+        -webkit-transform: translateY(6px);
+                transform: translateY(6px);
+    }
+    100% {
+        -webkit-transform: translateY(-6px);
+                transform: translateY(-6px);
+    }
+}
+
+
+.glyphicon-spin {
+    -webkit-animation: scroll 1500ms infinite linear;
+    animation: scroll 1500ms infinite linear;
+}
+
+.welcome {
+    margin: 15px;
+    font-size: 20px;
+}
+
+.otherContainer {
+    margin-top: 100px;
+    padding: 40px;
+}
+
+
+
+.foot {
+    margin: 40px;
+}
