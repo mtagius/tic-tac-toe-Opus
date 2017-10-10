@@ -37,25 +37,25 @@ function drawO(boardArrayNum) {
 function drawX(boardArrayNum) {
     context.strokeStyle = "#f1be32";
 
-    var xCordinate = (boardArrayNum % 3) * squareSize;
-    var yCordinate = Math.floor(boardArrayNum / 3) * squareSize;
+    var xCoordinate = (boardArrayNum % 3) * squareSize;
+    var yCoordinate = Math.floor(boardArrayNum / 3) * squareSize;
 
 
     context.beginPath();
 
     var offset = Math.floor((1/4) * squareSize);
-    context.moveTo(xCordinate + offset, yCordinate + offset);
-    context.lineTo(xCordinate + squareSize - offset, yCordinate + squareSize - offset);
+    context.moveTo(xCoordinate + offset, yCoordinate + offset);
+    context.lineTo(xCoordinate + squareSize - offset, yCoordinate + squareSize - offset);
 
-    context.moveTo(xCordinate + offset, yCordinate + squareSize - offset);
-    context.lineTo(xCordinate + squareSize - offset, yCordinate + offset);
+    context.moveTo(xCoordinate + offset, yCoordinate + squareSize - offset);
+    context.lineTo(xCoordinate + squareSize - offset, yCoordinate + offset);
 
     context.stroke();
 }
 
 function drawBoardGrid() {
     var lineStart = 4;
-    var lineLenght = canvasSize - 5;
+    var lineLength = canvasSize - 5;
     context.lineWidth = 10;
     context.lineCap = 'round';
     context.strokeStyle = "#283F53";
@@ -66,7 +66,7 @@ function drawBoardGrid() {
      */
     for (var y = 1; y <= 2; y++) {
         context.moveTo(lineStart, y * squareSize);
-        context.lineTo(lineLenght, y * squareSize);
+        context.lineTo(lineLength, y * squareSize);
     }
 
     /*
@@ -74,7 +74,7 @@ function drawBoardGrid() {
      */
     for (var x = 1; x <= 2; x++) {
         context.moveTo(x * squareSize, lineStart);
-        context.lineTo(x * squareSize, lineLenght);
+        context.lineTo(x * squareSize, lineLength);
     }
 
     context.stroke();
@@ -143,7 +143,7 @@ function drawWinPosition(winPosition) {
 
 }
 
-function winCondition() {
+function winCondition(draw) {
     var iterator = 0;
     var firstPiece = "";
     var iteratorPiece = "";
@@ -160,7 +160,9 @@ function winCondition() {
             iterator += 1;
         }
         if(win == true && firstPiece != "") {
-            drawWinPosition(i + 1);
+            if(draw == true) {
+                drawWinPosition(i + 1);
+            }
             return firstPiece;
         }
     }
@@ -177,7 +179,9 @@ function winCondition() {
             iterator += 3;
         }
         if(win == true && firstPiece != "") {
-            drawWinPosition(i + 4);
+            if(draw == true) {
+                drawWinPosition(i + 4);
+            }
             return firstPiece;
         }
     }
@@ -198,7 +202,9 @@ function winCondition() {
             }
         }
         if(win == true && firstPiece != "") {
-            drawWinPosition(i + 7);
+            if(draw == true) {
+                drawWinPosition(i + 7);
+            }
             return firstPiece;
         }
     }

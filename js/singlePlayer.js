@@ -1,4 +1,60 @@
+function computerTurn() {
+    var computerPick = -1;
 
+    for(var i = 0; i < board.length; i++) {
+        if(board[i] == "") {
+            board[i] = "X";
+            if(winCondition(false) == "X") {
+                board[i] = "";
+                computerPick = i;
+                break;
+            }
+            board[i] = "";
+        }
+    }
+
+    for(var i = 0; i < board.length; i++) {
+        if(board[i] == "") {
+            board[i] = "O";
+            if(winCondition(false) == "O") {
+                computerPick = i;
+                break;
+            }
+            board[i] = "";
+        }
+    }
+
+    if(computerPick == -1) {
+        do {
+            computerPick = Math.floor(Math.random() * 9);
+        } while(board[computerPick] != "");
+    }
+
+    setTimeout(function() {
+        turn = 0;
+        board[computerPick] = "O";
+        drawO(computerPick);
+        whosTurn();
+        determineWinner();
+    }, Math.floor(Math.random() * 1500) + 1000);
+}
+
+function determineWinner() {
+    var winner = winCondition(true);
+    if(winner != null) {
+        if(winner == "X") {
+            $("#player1Wins").html(player1Wins += 1);
+            $("#whosTurn").html(player1Name + " wins!");
+        } else if (winner == "O") {
+            $("#player2Wins").html(player2Wins += 1);
+            $("#whosTurn").html(player2Name + " wins!");
+        } else {
+            $("#whosTurn").html("Tie Game!");
+        }
+        $("#gamesPlayed").html("Games Played: " + (gamesPlayed += 1));
+        gameOver = true;
+    }
+}
 
 function initializeSinglePlayer() {
     
@@ -20,41 +76,27 @@ function initializeSinglePlayer() {
             var boardArrayNum = getSquareCube(event);
             
             if(board[boardArrayNum] == "") {
-                if (turn == 0) {
-                    turn = 1;
-                    board[boardArrayNum] = "X";
-                    drawX(boardArrayNum);
-                } else {
-                    turn = 0;
-                    board[boardArrayNum] = "O";
-                    drawO(boardArrayNum);
-                }
+                turn = 1;
+                board[boardArrayNum] = "X";
+                drawX(boardArrayNum);
         
                 whosTurn();
             }
 
-            var winner = winCondition();
-            if(winner != null) {
-                if(winner == "X") {
-                    $("#player1Wins").html(player1Wins += 1);
-                    $("#whosTurn").html(player1Name + " wins!");
-                } else if (winner == "O") {
-                    $("#player2Wins").html(player2Wins += 1);
-                    $("#whosTurn").html(player2Name + " wins!");
-                } else {
-                    $("#whosTurn").html("Tie Game!");
-                }
-                $("#gamesPlayed").html("Games Played: " + (gamesPlayed += 1));
-                gameOver = true;
-            }
+            determineWinner();
 
+            if(gameOver == false) {
+                computerTurn();
+            }
         }
-        
     });
 
     $("#newGameButton").on('click', function() {
         if(gameOver == true) {
             restart();
+            if(turn == 1) {
+                computerTurn();
+            }
         }
     });
 

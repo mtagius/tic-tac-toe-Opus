@@ -31,7 +31,7 @@ function initializeLocalMultiplayer() {
                 whosTurn();
             }
 
-            var winner = winCondition();
+            var winner = winCondition(true);
             if(winner != null) {
                 if(winner == "X") {
                     $("#player1Wins").html(player1Wins += 1);
