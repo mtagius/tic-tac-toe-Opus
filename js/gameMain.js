@@ -337,10 +337,13 @@ $(document).ready(function () {
             initializeSinglePlayer();
         });
     } else {
-        $("#GameMode").html("Online Multiplayer");
-        $.getScript("../js/onlineMultiplayer.js", function() {
-            server = results[1];
-            testServer();
+        //$("#GameMode").html("Online Multiplayer");
+        $.get("../js/onlineMultiplayer.js", function() {
+            //server = results[1];
+            //testServer();
+            $("#GameMode").html(results[1]);
+            serverName = results[1];
+            initializeOnlineMultiplayer();
         });
     }
     
