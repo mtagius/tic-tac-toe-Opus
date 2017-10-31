@@ -1,3 +1,9 @@
 {
-    "players": ["Matt", "Ira"]
+    "players": ["Matt", "Ira"],
+    "board": ["", "", "", "", "", "", "", "", ""],
+    "wins": [1, 2],
+    "gamesPlayed": 3,
+    "turn": 0,
+    "sessionKey": "666",
+    "token": -1
 }
